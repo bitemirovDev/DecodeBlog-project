@@ -14,17 +14,14 @@
                 <h2>Новый блог</h2>
                 <input type="text" placeholder="Введите заголовок блога">
                 <select name="" id="">
-                    <option value="" disabled selected>Выберите категорию</option>
-                    <option value="">Прогнозы в IT</option>
-                    <option value="">Веб-разработка</option>
-                    <option value="">Мобильная разработка</option>
-                    <option value="">Фриланс</option>э
-                    <option value="">Алгоритмы</option>
-                    <option value="">Тестирование IT систем</option>
-                    <option value="">Разработка игр</option>
-                    <option value="">Дизайн и юзабилити</option>
-                    <option value="">Искусственный интелект</option>
-                    <option value="">Машинное обучение</option>
+                    <option value="categ" disabled selected>Выберите категорию</option>
+                    <%
+                        categories.forEach(categ =>{
+                    %> 
+                        <option value=""><%=categ.name%></option>
+                    <%
+                        })
+                    %>
                 </select>
                 <a class="yellowButton" href="#">Выберите картинку</a>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
