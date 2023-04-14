@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Roboto 400';
+    src: url('/fonts/Roboto/Roboto-Light.ttf');
+}
+
+.account-image{
+    width: 50px;
+    height: 50px;
+}
+
+.account-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.account-right{
+    width: calc(25% - 30px);
+    height: fit-content;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.account-right-image{
+    width: 200px;
+    height: 200px;
+}
+
+.account-right-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.account-right h3{
+    margin: 20px 0;
+}
+
+.account-right p{
+    font-family: 'Roboto 400';
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.account-content-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.account-content-head h2{
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+}
+
+.dropdownBtn{
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dropdownBtn img{
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdownContent{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    right: +10px;
+    visibility: hidden;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.1);
+}
+
+.dropdownContent a{
+    width: 100%;
+    height: 50%;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.dropdownContent p{
+    width: 100%;
+    height: 50%;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: red;
+    margin: 0;
+    line-height: 1;
+    font-family: 'Roboto 500';
+    cursor: pointer;
+}
+
+.dropdownContent p:hover{
+    color: #fff;
+    background-color: red;
+}
+
+.edit{
+    color: #000;
+    box-shadow: 0px -2px 5px -5px rgba(34, 60, 80, 0.6) inset;
+}
+
+.delete{
+    color: red;
+}
+
+.show{
+    visibility: visible;
+}

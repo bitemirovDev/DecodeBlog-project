@@ -1,0 +1,9 @@
+@import url('vendor/reset.css');
+@import url('vendor/same.css');
+@import url('components/header.css');
+@import url('pages/index.css');
+@import url('pages/register.css');
+@import url('pages/signIn.css');
+@import url('pages/myAccount.css');
+@import url('pages/newBlog.css');
+@import url('pages/inPost.css');

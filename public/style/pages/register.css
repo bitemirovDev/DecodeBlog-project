@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Roboto 500';
+    src: url('/fonts/Roboto/Roboto-Medium.ttf');
+}
+
+.main-register{
+    width: 25%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid #e7e7e7;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.main-register h2{
+    font-size: 36px;
+    margin: 0 auto 50px;
+}
+
+.main-register input{
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    line-height: 2;
+    font-size: 16px;
+    font-family: 'Roboto 500';
+}

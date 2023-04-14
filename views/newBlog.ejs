@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <title>New blog</title>
+    <link rel="stylesheet" href="/style/all.css">
+</head>
+<body>
+    <%- include('partials/headerSigned.ejs') %>
+
+    <div class="container">
+        <div class="newBlog">
+            <div class="newBlog-content">
+                <h2>Новый блог</h2>
+                <input type="text" placeholder="Введите заголовок блога">
+                <select name="" id="">
+                    <option value="" disabled selected>Выберите категорию</option>
+                    <option value="">Прогнозы в IT</option>
+                    <option value="">Веб-разработка</option>
+                    <option value="">Мобильная разработка</option>
+                    <option value="">Фриланс</option>э
+                    <option value="">Алгоритмы</option>
+                    <option value="">Тестирование IT систем</option>
+                    <option value="">Разработка игр</option>
+                    <option value="">Дизайн и юзабилити</option>
+                    <option value="">Искусственный интелект</option>
+                    <option value="">Машинное обучение</option>
+                </select>
+                <a class="yellowButton" href="#">Выберите картинку</a>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                <a class="blueButton newBlogLink" href="#">Создать</a>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

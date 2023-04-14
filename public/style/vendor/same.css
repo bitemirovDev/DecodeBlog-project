@@ -1,0 +1,18 @@
+.container{
+    padding: 120px 15% 50px;
+    background-color: #F5F5F5;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.blueButton{
+    text-align: center;
+    text-decoration: none;
+    background-color: #00A2DC;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
