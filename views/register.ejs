@@ -9,14 +9,14 @@
     <%- include('partials/header.ejs') %>
 
     <div class="container">
-        <div class="main-register">
-            <h2>Регистрация</h2>
-            <input type="email" placeholder="Введите e-mail">
-            <input type="text" placeholder="Введите полное имя">
-            <input type="password" placeholder="Введите пароль">
-            <input type="password" placeholder="Подтвердите пароль">
-            <a class="blueButton" href="#">Зарегистрироваться</a>
-        </div>
+        <h2>Регистрация</h2>
+        <form action="/api/signup" method="POST" class="main-register">
+            <input type="email" placeholder="Введите e-mail" name="email">
+            <input type="text" placeholder="Введите полное имя" name="fullName">
+            <input type="password" placeholder="Введите пароль" name="password">
+            <input type="password" placeholder="Подтвердите пароль" name="re_password">
+            <button class="blueButton" type="submit">Зарегистрироваться</button>
+        </form>
     </div>
 </body>
 </html>

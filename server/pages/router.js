@@ -31,7 +31,7 @@ router.get('/myAccount/inPost', async(req, res) => {
 
 router.get('/inPostWL',async(req, res) => {
     const allCategories = await Categories.find()
-    res.render('/inPostWL', {categories: allCategories})
+    res.render('inPostWL', {categories: allCategories})
 })
 
 module.exports = router
