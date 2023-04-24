@@ -132,3 +132,21 @@
 .show{
     visibility: visible;
 }
+
+.logoutButton{
+    text-align: center;
+    text-decoration: none;
+    background-color: red;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.account_buttons{
+    display: flex;
+    flex-direction: column;
+}

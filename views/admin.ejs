@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <title>My account</title>
+    <link rel="stylesheet" href="/style/all.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <div class="main">
+           <div class="main-content">
+                <div class="account-content-head">
+                    <h2>Пользователи</h2>
+                </div>
+                <div class="users">
+                    <div class="user">
+                        <div class="userImage">
+                            <img src="/images/account-image.jpg" alt="">
+                        </div>
+                        <div class="userInfo">
+                            <p><span>Полное имя: </span> Satoru Gojo</p>
+                            <p><span>E-mail: </span>satoru@vk.com</p>
+                        </div>
+                        <div class="userButtons">
+                            <button class="sendMess">Написать сообщение</button>
+                            <button class="block">Заблокировать</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="users">
+                    <div class="user">
+                        <div class="userImage">
+                            <img src="/images/account-image.jpg" alt="">
+                        </div>
+                        <div class="userInfo">
+                            <p><span>Полное имя: </span> Satoru Gojo</p>
+                            <p><span>E-mail: </span>satoru@vk.com</p>
+                        </div>
+                        <div class="userButtons">
+                            <button class="sendMess">Написать сообщение</button>
+                            <button class="block">Заблокировать</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="users">
+                    <div class="user">
+                        <div class="userImage">
+                            <img src="/images/account-image.jpg" alt="">
+                        </div>
+                        <div class="userInfo">
+                            <p><span>Полное имя: </span> Satoru Gojo</p>
+                            <p><span>E-mail: </span>satoru@vk.com</p>
+                        </div>
+                        <div class="userButtons">
+                            <button class="sendMess">Написать сообщение</button>
+                            <button class="block">Заблокировать</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="users">
+                    <div class="user">
+                        <div class="userImage">
+                            <img src="/images/account-image.jpg" alt="">
+                        </div>
+                        <div class="userInfo">
+                            <p><span>Полное имя: </span> Satoru Gojo</p>
+                            <p><span>E-mail: </span>satoru@vk.com</p>
+                        </div>
+                        <div class="userButtons">
+                            <button class="sendMess">Написать сообщение</button>
+                            <button class="block">Заблокировать</button>
+                        </div>
+                    </div>
+                </div>
+           </div>
+           <div class="account-right">
+                <div class="account-right-image">
+                    <img src="/images/admin-image.jpg" alt="">
+                </div>
+                <h3><%=user.fullName%></h3>
+                <div class="account_buttons">
+                    <a class="edit" href="#">Редактировать</a>
+                    <a class="logoutButton" href="/api/signout">Выйти</a>
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <script src="/js/dropdown.js"></script>
+</body>
+</html>

@@ -9,12 +9,12 @@
     <%- include('partials/header.ejs') %>
 
     <div class="container">
-        <div class="main-sign-in">
+        <form action="/api/signin" method="POST" class="main-sign-in">
             <h2>Вход</h2>
-            <input type="email" placeholder="Введите e-mail">
-            <input type="password" placeholder="Введите пароль">
-            <a class="blueButton" href="/myAccount">Вход</a>
-        </div>
+            <input type="email" placeholder="Введите e-mail" name="email">
+            <input type="password" placeholder="Введите пароль" name="password">
+            <button class="blueButton" type="submit">Вход</button>
+        </form>
     </div>
 </body>
 </html>

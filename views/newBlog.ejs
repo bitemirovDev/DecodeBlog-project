@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="/style/all.css">
 </head>
 <body>
-    <%- include('partials/headerSigned.ejs') %>
+    <%- include('partials/header.ejs') %>
 
     <div class="container">
         <div class="newBlog">
             <div class="newBlog-content">
                 <h2>Новый блог</h2>
-                <input type="text" placeholder="Введите заголовок блога">
-                <select name="" id="">
+                <input type="text" placeholder="Введите заголовок блога" name="title">
+                <select name="" id="" name="categ">
                     <option value="categ" disabled selected>Выберите категорию</option>
                     <%
                         categories.forEach(categ =>{
@@ -23,8 +23,8 @@
                         })
                     %>
                 </select>
-                <a class="yellowButton" href="#">Выберите картинку</a>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                <input class="yellowButton" type="file" name="image">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Введите описание" name="description"></textarea>
                 <a class="blueButton newBlogLink" href="#">Создать</a>
             </div>
             

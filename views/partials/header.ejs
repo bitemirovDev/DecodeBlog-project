@@ -10,7 +10,29 @@
         </button>
     </div>
     <div class="header-buttons">
-        <a class="blueButton" href="/register">Регистрация</a>
-        <a class="blueButton" href="/signIn">Вход</a>
+        <% 
+            if(user._id && user.isAdmin){
+        %>
+            <a href="/admin/<%=user._id%>">
+                <div class="account-image">
+                    <img src="/images/admin-image.jpg" alt="">
+                </div>
+            </a>
+        <%
+            }else if(user._id && !user.isAdmin){ 
+        %>
+            <a href="/myAccount/<%=user._id%>">
+                <div class="account-image">
+                    <img src="/images/account-image.jpg" alt="">
+                </div>
+            </a>
+        <%  
+            }else{
+        %>
+            <a class="blueButton" href="/register">Регистрация</a>
+            <a class="blueButton" href="/signIn">Вход</a>
+        <%
+            }
+        %>
     </div>
 </header>

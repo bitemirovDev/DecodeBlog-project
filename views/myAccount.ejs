@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/style/all.css">
 </head>
 <body>
-    <%- include('partials/headerSigned.ejs') %>
+    <%- include('partials/header.ejs') %>
 
     <div class="container">
         <div class="main">
@@ -23,7 +23,7 @@
                     <div class="main-post-content">
                         <div class="mainBlock">
                             <h3>
-                                 <a href="/myAccount/inPost">Обзор Report Manager от Webix</a> 
+                                 <a href="/inPost">Обзор Report Manager от Webix</a> 
                                 <div class="dropdown">
                                     <button class="dropdownBtn">
                                         <img src="/images/icons/ellipsis-vertical-solid.svg" alt="">
@@ -105,10 +105,19 @@
                 <div class="account-right-image">
                     <img src="/images/account-image.jpg" alt="">
                 </div>
-                <h3>Satoru Gojo</h3>
+                <h3><%=user.fullName%></h3>
                 <p>В основном пишу про веб-разработку на React & Redux</p>
                 <p>285 постов за все время</p>
-                <a class="blueButton" href="#">Редактировать</a>
+                <div class="account_buttons">
+                    <% 
+                        if(user.id == loginUser.id){
+                    %>
+                        <a class="edit" href="#">Редактировать</a>
+                        <a class="logoutButton" href="/api/signout">Выйти</a>
+                    <%
+                        }     
+                    %>  
+                </div>
            </div>
         </div>
     </div>
