@@ -2,10 +2,12 @@ const express = require('express')
 const router = express.Router()
 const Categories = require('../Categories/Categories')
 const user = require('../auth/user')
+const blog = require('../blogs/blog')
 
 router.get('/', async(req, res) => {
     const allCategories = await Categories.find()
-    res.render('index', {categories: allCategories, user: req.user ? req.user : {}})
+    const blogs = await blog.find().populate('categ').populate('author')
+    res.render('index', {categories: allCategories, user: req.user ? req.user : {}, blogs})
 })
 
 router.get('/register', (req, res) => {
@@ -18,8 +20,9 @@ router.get('/signIn', (req, res) => {
 
 router.get('/myAccount/:id', async (req, res) => {
     const User = await user.findById(req.params.id)
+    const blogs = await blog.find().populate('categ').populate('author')
     if(user){
-        res.render('myAccount', {user: User, loginUser: req.user})
+        res.render('myAccount', {user: User, loginUser: req.user, blogs})
     }
     else{
         res.redirect('/notFound')
@@ -52,7 +55,8 @@ router.get('/notFound', (req, res) =>{
 
 router.get('/admin/:id', async (req, res) => {
     const User = await user.findById(req.params.id)
-    res.render('admin', {loginUser: req.user, user: User})
+    const users = await user.find()
+    res.render('admin', {loginUser: req.user, user: User, users})
 })
 
 module.exports = router

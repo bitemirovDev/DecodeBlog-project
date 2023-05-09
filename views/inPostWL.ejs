@@ -10,41 +10,55 @@
 
     <div class="container">
         <div class="main">
-           <div class="main-content">
-                <div class="main-post">
-                    <div class="main-post-img">
-                        <img src="/images/post-1.png" alt="">
+           <div class="posts">
+                <%
+                      
+                %>
+                <div class="post">
+                    <div class="post-img">
+                        <img src="<%=item.image%>" alt="">
                     </div>
 
-                    <div class="main-post-info">
+                    <div class="post-info">
                         <p>
                             <img src="/images/icons/calendar.svg" alt="">
-                            26.06.2020
+                            <%=item.date%>
                         </p>
                         <p>
                             <img src="/images/icons/eye.svg" alt="">
-                            21
+                            0
                         </p>
                         <p>
                             <img src="/images/icons/comments.svg" alt="">
-                            4
+                            0
                         </p>
                         <p>
                             <img src="/images/icons/razdel.svg" alt="">
-                            Веб-разработка
+                            <%=item.categ.name%>
                         </p>
                         <p>
                             <img src="/images/icons/user.svg" alt="">
-                            Nast1289
+                            <%=item.author.fullName%>
                         </p>
                     </div>
 
-                    <div class="main-post-content">
-                        <div class="mainBlock">
-                            <h3>Обзор Report Manager от Webix</h3>
-                            <p> Осень 2020 года стала плодотворным временем для специалистов Webix.</p> 
-                            <p>Команда Webix выпустила восьмую версию библиотеки пользовательского интерфейса Webix с двумя новыми комплексными виджетами. Первый - зто Scheduler, о котором мы подробно говорили ранее. Второй виджет - это Gantt chart в JavaScript. Подробную информацию об этом виджете Вы можете найти в статье. </p>
-                            <p>Ноябрь продолжает тенденцию, и мы спешим поделиться с Вами новым комплексным виджетом Report Manager. Давайте рассмотрим его</p>
+                    <div class="post-content">
+                        <div class="post-content-main">
+                            <div class="post-content-main">
+                                <h3> 
+                                    <a class="post-title" href="/inPostWL"><%=item.title%></a>
+                                    <div class="dropdown">
+                                        <button class="dropdownBtn" onclick="dropdownDots ()">
+                                            <img src="/images/icons/ellipsis-vertical-solid.svg" alt="">
+                                        </button>
+                                        <div class="dropdownContent">
+                                            <a class="editDD" href="#">Редактировать</a>
+                                            <a class="deleteDD" href="#">Удалить</a>
+                                        </div>
+                                    </div> 
+                                </h3>
+                                <p><%=item.description%></p> 
+                            </div>
 
                             <div class="main-post-hidden-content">
                                 <h4>Что такое комплексные виджеты Webix?</h4>
@@ -60,6 +74,7 @@
                     </div>
                 </div>
            </div>
+
            <div class="categ">
                 <h3>Категории</h3>
                 <% 

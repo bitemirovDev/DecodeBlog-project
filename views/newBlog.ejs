@@ -10,24 +10,23 @@
 
     <div class="container">
         <div class="newBlog">
-            <div class="newBlog-content">
+            <form class="newBlog-content" action="/api/new" method="POST" enctype="multipart/form-data">
                 <h2>Новый блог</h2>
                 <input type="text" placeholder="Введите заголовок блога" name="title">
-                <select name="" id="" name="categ">
-                    <option value="categ" disabled selected>Выберите категорию</option>
+                <select name="categ" id="">
+                    <option value="" disabled selected>Выберите категорию</option>
                     <%
                         categories.forEach(categ =>{
                     %> 
-                        <option value=""><%=categ.name%></option>
+                        <option value="<%=categ._id%>"><%=categ.name%></option>
                     <%
                         })
                     %>
                 </select>
                 <input class="yellowButton" type="file" name="image">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Введите описание" name="description"></textarea>
-                <a class="blueButton newBlogLink" href="#">Создать</a>
-            </div>
-            
+                <textarea name="description" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                <button class="blueButton newBlogLink" type="submit">Создать</button>
+            </form>
         </div>
     </div>
     
