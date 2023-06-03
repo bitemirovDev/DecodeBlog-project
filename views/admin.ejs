@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
-    <title>My account</title>
+    <title>Decode</title>
     <link rel="stylesheet" href="/style/all.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <div class="container">
         <div class="main">
            <div class="posts">
-                <div class="account-content-head">
+                <div class="profile-content-head">
                     <h2>Пользователи</h2>
                 </div>
 
@@ -19,39 +19,42 @@
 
                     <%
                         users.forEach(user => {
+                            if(!user.isAdmin){
                     %>
-                        <div class="user">
-                            <div class="userImage">
-                                <img src="<%=user.image%>" alt="">
-                            </div>
-                            <div class="userInfo">
-                                <p><span>Полное имя: </span><%=user.fullName%></p>
-                                <p><span>E-mail: </span><%=user.email%></p>
-                            </div>
-                            <div class="userButtons">
-                                <button class="sendMess">Написать сообщение</button>
-                                <button class="block">Заблокировать</button>
-                            </div>
-                        </div>   
-                    <%
-                        }) 
+                            <div class="user">
+                                <div class="userImage">
+                                    <img src="<%=user.image%>" alt="">
+                                </div>
+                                <div class="userInfo">
+                                    <p><span>Полное имя: </span><%=user.fullName%></p>
+                                    <p><span>E-mail: </span><%=user.email%></p>
+                                </div>
+                                <div class="userButtons">
+                                    <button class="sendMess">Написать сообщение</button>
+                                    <button class="block">Заблокировать</button>
+                                </div>
+                            </div>   
+                    <%  
+                        }}) 
                     %>
                 </div>
 
            </div>
-           <div class="account-right">
-                <div class="account-right-image">
-                    <img src="/images/admin-image.jpg" alt="">
+           <div class="profile-right">
+                <div class="profile-right-image">
+                    <img src="<%=user.image%>" alt="">
                 </div>
                 <h3><%=user.fullName%></h3>
-                <div class="account_buttons">
-                    <a class="editButton" href="#">Редактировать</a>
+                <p><%=user.description%></p>
+                <div class="profile_buttons">
+                    <a class="editButton" href="/editProfile/<%=user.id%>">Редактировать</a>
                     <a class="logoutButton" href="/api/signout">Выйти</a>
                 </div>
            </div>
         </div>
     </div>
 
-    <script src="/js/dropdown.js"></script>
+    <%-include('partials/scripts.ejs')%>
+    
 </body>
 </html>

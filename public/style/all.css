@@ -4,7 +4,8 @@
 @import url('pages/index.css');
 @import url('pages/register.css');
 @import url('pages/signIn.css');
-@import url('pages/myAccount.css');
+@import url('pages/profile.css');
 @import url('pages/newBlog.css');
 @import url('pages/inPost.css');
 @import url('pages/admin.css');
+@import url('pages/editProfile.css');

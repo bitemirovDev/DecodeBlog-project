@@ -3,19 +3,19 @@
     src: url('/fonts/Roboto/Roboto-Light.ttf');
 }
 
-.account-image{
+.profile-image{
     width: 50px;
     height: 50px;
 }
 
-.account-image img{
+.profile-image img{
     width: 100%;
     height: 100%;
     border-radius: 100%;
     object-fit: cover;
 }
 
-.account-right{
+.profile-right{
     width: calc(25% - 30px);
     height: fit-content;
     background-color: #fff;
@@ -27,36 +27,36 @@
     border-radius: 5px;
 }
 
-.account-right-image{
+.profile-right-image{
     width: 200px;
     height: 200px;
 }
 
-.account-right-image img{
+.profile-right-image img{
     width: 100%;
     height: 100%;
     border-radius: 100%;
     object-fit: cover;
 }
 
-.account-right h3{
+.profile-right h3{
     margin: 20px 0;
 }
 
-.account-right p{
+.profile-right p{
     font-family: 'Roboto 400';
     text-align: center;
     margin-bottom: 30px;
 }
 
-.account-content-head{
+.profile-content-head{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
 }
 
-.account-content-head h2{
+.profile-content-head h2{
     margin: 0;
     font-size: 36px;
     text-align: center;
@@ -84,11 +84,11 @@
     display: flex;
     flex-direction: column;
     width: 120px;
-    height: 50px;
     position: absolute;
     right: +10px;
     visibility: hidden;
     box-shadow: 0px 0px 5px 0px rgba(34, 60, 80, 0.2);
+    z-index: 99;
 }
 
 .dropdownContent a{
@@ -118,7 +118,7 @@
     visibility: visible;
 }
 
-.account_buttons{
+.profile_buttons{
     display: flex;
     flex-direction: column;
-}
+}   

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <title>Decode</title>
+    <link rel="stylesheet" href="/style/all.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <div class="newBlog">
+            <form class="form" action="/api/blogs/edit" method="POST" enctype="multipart/form-data">
+                <h2>Редактировать блог</h2>
+                <input type="hidden" value="<%=thisBlog._id%>" name="id">
+                <fieldset class="fieldset">
+                    <input type="text" placeholder="Введите заголовок блога" name="title" value="<%=thisBlog.title%>">
+                </fieldset>
+                <fieldset class="fieldset">
+                    <select name="categ" id="">
+                        <%
+                            categories.forEach(categ =>{
+                                if(categ.id == thisBlog.categ){
+                        %> 
+                            <option value="<%=categ._id%>" selected><%=categ.name%></option>
+    
+                        <%
+                            }else{
+                        %>
+                            <option value="<%=categ._id%>"><%=categ.name%></option>
+                        <%
+                            }})
+                        %>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <input class="yellowButton" type="file" name="image">
+                </fieldset>
+                
+                <fieldset class="fieldset">
+                    <textarea name="description" id="" cols="30" rows="10"><%=thisBlog.description%></textarea>
+                </fieldset>
+                
+                <button class="blueButton formLink" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    
+    <%-include('partials/scripts.ejs')%>
+
+</body>
+</html>

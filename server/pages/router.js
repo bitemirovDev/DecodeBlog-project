@@ -3,11 +3,43 @@ const router = express.Router()
 const Categories = require('../Categories/Categories')
 const user = require('../auth/user')
 const blog = require('../blogs/blog')
+const comments = require('../comments/comments')
 
 router.get('/', async(req, res) => {
+    // фильтр по категориям
+    const options = {}
+    const category = await Categories.findOne({key: req.query.categ})
+    if(category){
+        options.categ = category._id
+        res.locals.categ = req.query.categ
+    }
+    // 
+
+    //pageination
+    let page = 0
+    const limit = 3
+    if(req.query.page && req.query.page > 0){
+        page = req.query.page
+    }
+    // 
+
+    // search
+    if(req.query.search && req.query.search.length > 0){
+        options.$or = [
+            {
+                title: new RegExp(req.query.search, 'i')
+            }
+        ]
+
+        res.locals.search = req.query.search
+    }
+    // 
+
+    const totalBlogs = await blog.count(options)
     const allCategories = await Categories.find()
-    const blogs = await blog.find().populate('categ').populate('author')
-    res.render('index', {categories: allCategories, user: req.user ? req.user : {}, blogs})
+    const blogs = await blog.find(options).limit(limit).skip(page * limit).populate('categ').populate('author')
+    const User = req.user ? await user.findById(req.user._id) : {}
+    res.render('index', {categories: allCategories, user: User, blogs, pages: Math.ceil(totalBlogs / limit)})
 })
 
 router.get('/register', (req, res) => {
@@ -18,11 +50,11 @@ router.get('/signIn', (req, res) => {
     res.render('signIn', {user: req.user ? req.user : {}})
 })
 
-router.get('/myAccount/:id', async (req, res) => {
+router.get('/profile/:id', async (req, res) => {
     const User = await user.findById(req.params.id)
     const blogs = await blog.find().populate('categ').populate('author')
-    if(user){
-        res.render('myAccount', {user: User, loginUser: req.user, blogs})
+    if(User){
+        res.render('profile', {user: User, loginUser: req.user, blogs})
     }
     else{
         res.redirect('/notFound')
@@ -34,19 +66,35 @@ router.get('/newBlog', async(req, res) => {
     res.render('newBlog', {categories: allCategories, user: req.user ? req.user : {}})
 })
 
-router.get('/inPost', async(req, res) => {
+router.get('/favourites/:id', async(req, res) => {
+    const User = await user.findById(req.params.id).populate('favBlogs')
+    .populate({path: 'favBlogs', populate: {path: 'author'}})
+    .populate({path: 'favBlogs', populate: {path: 'categ'}})
     const allCategories = await Categories.find()
-    if(user){
-        res.render('inPost', {categories: allCategories, user: req.user ? req.user : {}})
+    if(User){
+        res.render('favourites', {categories: allCategories, user: User, loginUser: req.user})
     }
     else{
-        res.redirect('/inPostWL')
+        res.redirect('/notFound')
     }
 })
 
-router.get('/inPostWL',async(req, res) => {
+router.get('/editBlog/:id', async(req, res) => {
     const allCategories = await Categories.find()
-    res.render('inPostWL', {categories: allCategories, user: req.user ? req.user : {}})
+    const thisBlog = await blog.findById(req.params.id)
+    res.render('editBlog', {categories: allCategories, user: req.user ? req.user : {}, thisBlog})
+})
+
+router.get('/editProfile/:id', async(req, res) => {
+    const User = await user.findById(req.params.id)
+    res.render('editProfile', {user: req.user ? req.user : {}, User})
+})          
+
+router.get('/inPost/:id', async(req, res) => {
+    const Comments = await comments.find({blogID: req.params.id}).populate('authorID')
+    const allCategories = await Categories.find()
+    const thisBlog = await blog.findById(req.params.id).populate('categ').populate('author')
+    res.render('inPost', {categories: allCategories, user: req.user ? req.user : {}, thisBlog, Comments})
 })
 
 router.get('/notFound', (req, res) =>{

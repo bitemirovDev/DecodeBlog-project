@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <title>DecodeNew blog</title>
+    <link rel="stylesheet" href="/style/all.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <div class="editProfile">
+            <form class="form" action="/api/profile/edit" method="POST" enctype="multipart/form-data">
+                <h2>Редактировать профиль</h2>
+                <fieldset class="fieldset">
+                    <div class="profileName">
+                        <h3>Полное имя:</h3>
+                        <input type="text" name="fullName" value="<%=User.fullName%>">
+                    </div>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <div class="profileImage">
+                        <h3>Аватар:</h3>
+                        <input class="yellowButton" type="file" name="image">
+                    </div>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <div class="profileDescription">
+                        <h3>Описание:</h3>
+                        <textarea name="description" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                    </div>
+                </fieldset>
+                <button class="blueButton formLink" type="submit">Сохранить</button>
+            </form>
+        </div>          
+    </div>
+
+    <%-include('partials/scripts.ejs')%>
+    
+</body>
+</html>

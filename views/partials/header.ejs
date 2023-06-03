@@ -2,28 +2,28 @@
     <div class="header-logo">
         <a href="/">Decode Blog</a>
     </div>
-    <div class="header-search">
-        <input type="text" placeholder="Поиск по блогам">
+    <form class="header-search">
+        <input type="text" name="search" placeholder="Поиск по блогам">
         <button>
             <img src="/images/icons/search.svg" alt="">
             Найти
         </button>
-    </div>
+    </form>
     <div class="header-buttons">
         <% 
             if(user._id && user.isAdmin){
         %>
             <a href="/admin/<%=user._id%>">
-                <div class="account-image">
-                    <img src="/images/admin-image.jpg" alt="">
+                <div class="profile-image">
+                    <img src="<%=user.image%>" alt="">
                 </div>
             </a>
         <%
             }else if(user._id && !user.isAdmin){ 
         %>
-            <a href="/myAccount/<%=user._id%>">
-                <div class="account-image">
-                    <img src="/images/account-image.jpg" alt="">
+            <a href="/profile/<%=user._id%>">
+                <div class="profile-image">
+                    <img src="<%=user.image%>" alt="">
                 </div>
             </a>
         <%  

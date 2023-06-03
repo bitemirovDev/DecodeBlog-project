@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
-    <title>Index</title>
+    <title>Decode</title>
     <link rel="stylesheet" href="/style/all.css">
 </head>
 <body>
@@ -29,7 +29,26 @@
                     <div class="post-content">
                         <div class="post-content-main">
                             <h3> 
-                                <a class="post-title" href="/inPostWL"><%=item.title%></a> 
+                                <a class="post-title" href="/inPost/<%=item.id%>"><%=item.title%></a>
+
+                                <%
+                                    if(user.favBlogs && user.favBlogs.includes(item._id)){
+                                %>
+                                    <p class="favTitle" onclick="deleteFromFavourites('<%=item._id%>')">В избранном</p>
+                                <%
+                                    }else{
+                                %>
+                                    <div class="dropdown">
+                                            <button class="dropdownBtn">
+                                                <img src="/images/icons/ellipsis-vertical-solid.svg" alt="">
+                                            </button>
+                                            <div class="dropdownContent">
+                                                <a class="editDD" onclick="addToFavourites('<%=item._id%>')">Добавить в избранное</a>
+                                            </div>
+                                    </div> 
+                                <%    
+                                    }
+                                %>
                             </h3>
                             <p><%=item.description%></p> 
                         </div>
@@ -62,6 +81,24 @@
                     })
                 %>
 
+                <div class="pages">
+                    <%
+                        let localsString = ''
+                        if(locals.categ){
+                            localsString = `categ=${locals.categ}&`
+                        }
+                        if(locals.search){
+                            localsString = `search=${locals.search}&`
+                        }
+ 
+                        for(let i = 0; i < pages; i++){
+                    %>
+                            <a href="?<%=localsString%>page=<%=i%>"><%=i + 1%></a>
+                    <%
+                        }
+                    %>
+                </div>
+
             </div>
 
            <div class="categ">
@@ -69,12 +106,15 @@
                 <% 
                     categories.forEach(categ =>{
                 %>
-                    <a href="/<%=categ.key%>"><%=categ.name%></a>
+                    <a href="?categ=<%=categ.key%>"><%=categ.name%></a>
                 <%
                     }) 
                 %>
            </div>
         </div>
     </div>
+
+    <%-include('partials/scripts.ejs')%>
+
 </body>
 </html>

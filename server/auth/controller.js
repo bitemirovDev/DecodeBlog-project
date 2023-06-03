@@ -26,7 +26,8 @@ const signUp = async (req, res) => {
                 fullName: req.body.fullName,
                 isAdmin: false,
                 password: hash,
-                image: "none",
+                image: "/images/users/default-image.png",
+                description: ''
             }).save()
             res.redirect('/signIn')
         });
@@ -37,7 +38,7 @@ const signIn = (req, res) => {
     if(req.user.isAdmin){
         res.redirect(`/admin/${req.user._id}`)
     }else{
-        res.redirect(`/myAccount/${req.user._id}`)
+        res.redirect(`/profile/${req.user._id}`)
     }
     
 }

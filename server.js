@@ -13,6 +13,7 @@ require('./server/config/passport')
 // при указывании в src '/', автоматически оказываться в папке public
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded())
+app.use(express.json())
 app.use(session({
     name: 'decodeBlog.session',
     secret: 'keyboard cat',
@@ -34,6 +35,8 @@ app.use(require('./server/pages/router'))
 app.use(require('./server/Categories/router'))
 app.use(require('./server/auth/router'))
 app.use(require('./server/blogs/router'))
+app.use(require('./server/user/router'))
+app.use(require('./server/comments/router'))
 
 
 const PORT = 8000;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
-    <title>New blog</title>
+    <title>Decode</title>
     <link rel="stylesheet" href="/style/all.css">
 </head>
 <body>
@@ -10,25 +10,35 @@
 
     <div class="container">
         <div class="newBlog">
-            <form class="newBlog-content" action="/api/new" method="POST" enctype="multipart/form-data">
+            <form class="form" action="/api/blogs/new" method="POST" enctype="multipart/form-data">
                 <h2>Новый блог</h2>
-                <input type="text" placeholder="Введите заголовок блога" name="title">
-                <select name="categ" id="">
-                    <option value="" disabled selected>Выберите категорию</option>
-                    <%
-                        categories.forEach(categ =>{
-                    %> 
-                        <option value="<%=categ._id%>"><%=categ.name%></option>
-                    <%
-                        })
-                    %>
-                </select>
+                <fieldset class="fieldset">
+                    <input type="text" placeholder="Введите заголовок блога" name="title">
+                </fieldset>
+                
+                <fieldset class="fieldset">
+                    <select name="categ" id="">
+                        <option value="">Выберите категорию</option>
+                        <%
+                            categories.forEach(categ =>{
+                        %> 
+                            <option value="<%=categ._id%>"><%=categ.name%></option>
+                        <%
+                            })
+                        %>
+                    </select>
+                </fieldset>
                 <input class="yellowButton" type="file" name="image">
-                <textarea name="description" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
-                <button class="blueButton newBlogLink" type="submit">Создать</button>
+                <fieldset class="fieldset">
+                    <textarea name="description" id="" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                </fieldset>
+                
+                <button class="blueButton formLink" type="submit">Создать</button>
             </form>
         </div>
     </div>
+
+    <%-include('partials/scripts.ejs')%>
     
 </body>
 </html>

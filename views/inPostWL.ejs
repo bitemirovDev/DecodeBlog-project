@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
-    <title>in post</title>
+    <title>Decode</title>
     <link rel="stylesheet" href="/style/all.css">
 </head>
 <body>
@@ -11,18 +11,15 @@
     <div class="container">
         <div class="main">
            <div class="posts">
-                <%
-                      
-                %>
                 <div class="post">
                     <div class="post-img">
-                        <img src="<%=item.image%>" alt="">
+                        <img src="" alt="">
                     </div>
 
                     <div class="post-info">
                         <p>
                             <img src="/images/icons/calendar.svg" alt="">
-                            <%=item.date%>
+                            
                         </p>
                         <p>
                             <img src="/images/icons/eye.svg" alt="">
@@ -34,11 +31,11 @@
                         </p>
                         <p>
                             <img src="/images/icons/razdel.svg" alt="">
-                            <%=item.categ.name%>
+                            
                         </p>
                         <p>
                             <img src="/images/icons/user.svg" alt="">
-                            <%=item.author.fullName%>
+                            
                         </p>
                     </div>
 
@@ -46,7 +43,7 @@
                         <div class="post-content-main">
                             <div class="post-content-main">
                                 <h3> 
-                                    <a class="post-title" href="/inPostWL"><%=item.title%></a>
+                                    <a class="post-title" href="/inPostWL"></a>
                                     <div class="dropdown">
                                         <button class="dropdownBtn" onclick="dropdownDots ()">
                                             <img src="/images/icons/ellipsis-vertical-solid.svg" alt="">
@@ -57,7 +54,7 @@
                                         </div>
                                     </div> 
                                 </h3>
-                                <p><%=item.description%></p> 
+                                <p></p> 
                             </div>
 
                             <div class="main-post-hidden-content">
@@ -87,5 +84,8 @@
            </div>
         </div>
     </div>
+
+    <%-include('partials/scripts.ejs')%>
+
 </body>
 </html>

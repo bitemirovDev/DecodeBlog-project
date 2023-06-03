@@ -10,7 +10,9 @@ async function createAdmin () {
                     fullName: 'Admin',
                     email: 'master@mail.ru',
                     isAdmin: true,
-                    password: hash
+                    password: hash,
+                    description: '',
+                    image: "/images/users/admin-image.jpg"
                 }).save()
             });
         })
