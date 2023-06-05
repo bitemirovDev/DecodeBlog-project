@@ -1,3 +1,4 @@
+const { log } = require('console');
 const user = require('../auth/user')
 const fs = require('fs')
 const path = require('path')
@@ -45,7 +46,33 @@ const editUser = async (req, res) =>{
     }
 }
 
+const blockUser = async(req, res) =>{
+    if(req.user.isAdmin){
+        await user.findByIdAndUpdate(req.body.id, {
+            isBlocked: true
+        })
+    }
+}
+
+const unblockUser = async (req, res) =>{
+    if(req.user.isAdmin){
+        await user.findByIdAndUpdate(req.body.id, {
+            isBlocked: false
+        })
+    }
+}
+
+const deleteUser = async(req, res) =>{
+    const thisUser = await user.findById(req.params.id)
+    if(thisUser){
+        await user.deleteOne({_id: req.params.id})
+    }
+}
+
 module.exports = {
     addToFav,
-    editUser
+    editUser,
+    blockUser,
+    unblockUser,
+    deleteUser
 }

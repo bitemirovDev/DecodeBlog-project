@@ -27,7 +27,7 @@
                         </p>
                         <p>
                             <img src="/images/icons/comments.svg" alt="">
-                            0
+                            <%=CommentsCount%>
                         </p>
                         <p>
                             <img src="/images/icons/razdel.svg" alt="">
@@ -49,7 +49,7 @@
                                 <div class="comments-count">
                                     <h3>Комментарии</h3>
                                 </div>
-                                <%
+                            <%
                                 if(Comments){
                                     Comments.forEach(comment =>{
                             %>

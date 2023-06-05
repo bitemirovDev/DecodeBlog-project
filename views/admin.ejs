@@ -30,8 +30,19 @@
                                     <p><span>E-mail: </span><%=user.email%></p>
                                 </div>
                                 <div class="userButtons">
-                                    <button class="sendMess">Написать сообщение</button>
-                                    <button class="block">Заблокировать</button>
+                                        <button onclick="deleteUser('<%=user.id%>')" class="deleteUser">Удалить</button>
+                                    <%
+                                        if(user.isBlocked){
+                                    %>
+                                        <button onclick="unblockUser('<%=user.id%>')" class="unblock">Разблокировать</button>    
+                                    <%        
+                                        }else{
+                                    %>
+                                        <button onclick="blockUser('<%=user.id%>')" class="block">Заблокировать</button>   
+                                    <%        
+                                        }
+                                    %>
+                                    
                                 </div>
                             </div>   
                     <%  

@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema({
     isAdmin: Boolean,
     image: String,
     description: String,
+    isBlocked: Boolean,
+    googleId: String,
     favBlogs: [{type: Schema.Types.ObjectId, ref: 'blog'}]
 })
 

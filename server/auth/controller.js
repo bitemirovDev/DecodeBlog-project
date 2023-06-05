@@ -1,5 +1,7 @@
 const user = require('./user')
 const bcrypt = require('bcrypt')
+const passport = require('passport')
+
 
 const signUp = async (req, res) => {
     if( req.body.email.length <= 0 && 
@@ -26,8 +28,9 @@ const signUp = async (req, res) => {
                 fullName: req.body.fullName,
                 isAdmin: false,
                 password: hash,
-                image: "/images/users/default-image.png",
-                description: ''
+                image: "/images/users/default-image.jpg",
+                description: '',
+                isBlocked: false
             }).save()
             res.redirect('/signIn')
         });

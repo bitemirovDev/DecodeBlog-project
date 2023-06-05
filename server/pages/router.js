@@ -94,7 +94,8 @@ router.get('/inPost/:id', async(req, res) => {
     const Comments = await comments.find({blogID: req.params.id}).populate('authorID')
     const allCategories = await Categories.find()
     const thisBlog = await blog.findById(req.params.id).populate('categ').populate('author')
-    res.render('inPost', {categories: allCategories, user: req.user ? req.user : {}, thisBlog, Comments})
+    const CommentsCount = await comments.find({blogID: req.params.id}).count()
+    res.render('inPost', {categories: allCategories, user: req.user ? req.user : {}, thisBlog, Comments, CommentsCount})
 })
 
 router.get('/notFound', (req, res) =>{
