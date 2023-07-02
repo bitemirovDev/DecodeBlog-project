@@ -53,8 +53,9 @@ router.get('/signIn', (req, res) => {
 router.get('/profile/:id', async (req, res) => {
     const User = await user.findById(req.params.id)
     const blogs = await blog.find().populate('categ').populate('author')
+    const myBlogsCount = await blog.find({author: User.id}).count()
     if(User){
-        res.render('profile', {user: User, loginUser: req.user, blogs})
+        res.render('profile', {user: User, loginUser: req.user, blogs, myBlogsCount})
     }
     else{
         res.redirect('/notFound')

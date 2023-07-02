@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     description: String,
     isBlocked: Boolean,
     googleId: String,
+    githubId: String,
     favBlogs: [{type: Schema.Types.ObjectId, ref: 'blog'}]
 })
 

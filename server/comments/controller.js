@@ -11,4 +11,11 @@ const saveComment = async(req, res) =>{
     res.status(200).send(true)
 }
 
-module.exports = {saveComment}
+const deleteComment = async(req, res) =>{
+    await comments.findByIdAndDelete(req.body.id)
+}
+
+module.exports = {
+    saveComment,
+    deleteComment
+}

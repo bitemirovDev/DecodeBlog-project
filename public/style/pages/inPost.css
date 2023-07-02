@@ -3,20 +3,22 @@
     font-size: 24px;
 }
 
-.comment-img-name{
+.comment-author{
     display: flex;
     align-items: center;
     margin-bottom: 20px;   
 }
 
-.comment-img-name p{
+.comment-author p{
     margin: 0;
     margin-left: 20px;
 }
 
 .comment{
-    border-bottom: 1px solid #e7e7e7;
+    border: 1px solid #888181;
+    border-radius: 10px;
     margin-bottom: 15px;
+    padding: 10px;
 }
 
 .new-comment{
@@ -58,5 +60,23 @@
 .account-image img{
     width: 100%;
     height: 100%;
-    
+}
+
+.comment-author-and-btn{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ebe7e7;
+}
+
+.deleteComment{
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.commentText{
+    margin: 10px 0;
 }

@@ -12,3 +12,8 @@ function sendComment(e) {
         })
     }
 }
+
+function deleteComment(id){
+    axios.post('/api/comments/delete', {id})
+    location.reload()
+}

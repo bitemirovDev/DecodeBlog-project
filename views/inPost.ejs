@@ -54,15 +54,28 @@
                                     Comments.forEach(comment =>{
                             %>
                                     <div class="comment">
-                                        <div class="comment-img-name">
-                                        <a href="#">
-                                            <div class="profile-image">
-                                                <img src="<%=comment.authorID.image%>" alt="">
+                                        <div class="comment-author-and-btn">
+                                            <div class="comment-author">
+                                                <a href="#">
+                                                    <div class="profile-image">
+                                                        <img src="<%=comment.authorID.image%>" alt="">
+                                                    </div>
+                                                </a>
+                                                <p><%=comment.authorID.fullName%></p>
                                             </div>
-                                        </a>
-                                        <p><%=comment.authorID.fullName%></p>
+
+                                            <%
+                                                if(user.id == comment.authorID.id){
+                                            %>
+                                                    <button class="deleteComment" onclick="deleteComment('<%=comment.id%>')">
+                                                        <img src="/images/icons/trash.svg" alt="">
+                                                    </button>  
+                                            <%        
+                                                }
+                                            %>
+                                            
                                         </div>
-                                        <p><%=comment.comment%></p>
+                                        <p class="commentText"><%=comment.comment%></p>
                                     </div>
                             <%        
                                     })
